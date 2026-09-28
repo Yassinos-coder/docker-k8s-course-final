@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2026-09-28
+
+### Added
+
+- `GET /info` endpoint reporting the active datastore (in-memory vs. Redis) and current entry count
+- `GET /entries` / `POST /entries` API routes backing the guestbook UI, persisted to Redis (via `REDIS_MASTER_SERVICE_HOST`/`REDIS_MASTER_SERVICE_PORT`) when configured, falling back to an in-memory list otherwise
+- `redis-master-deployment.yaml`, `redis-master-service.yaml`, `redis-slave-deployment.yaml`, `redis-slave-service.yaml` — standard Kubernetes guestbook Redis manifests for the optional "Deploy Guestbook from the OpenShift Internal Registry" lab
+- `/info` link on the guestbook page
+
+### Changed
+
+- `public/app.js` now fetches/persists entries through the new API instead of only manipulating the DOM client-side
+- `redis` added as a runtime dependency
+
 ## [2.0.0] - 2026-09-28
 
 ### Changed

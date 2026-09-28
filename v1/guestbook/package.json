@@ -1,12 +1,13 @@
 {
   "name": "guestbook",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Simple guestbook app for Docker/Kubernetes course",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "redis": "^4.7.0"
   }
 }
