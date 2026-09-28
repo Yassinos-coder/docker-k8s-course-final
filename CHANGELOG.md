@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2026-09-28
+
+### Fixed
+
+- Fixed Docker build still failing with `npm error Exit handler never called!` under `npm ci` — the lab sandbox blocks all outbound network access during `docker build`, not just the audit/funding calls. The Dockerfile now copies a host-installed `node_modules` directly instead of running any npm command during the image build.
+
+### Changed
+
+- `.dockerignore` no longer excludes `node_modules`, since it must now be present in the build context
+- README build/push instructions updated to run `npm install` before `docker build`, and to use `docker build`/`docker push` directly instead of `ibmcloud cr build`
+
 ## [1.0.1] - 2026-09-28
 
 ### Fixed

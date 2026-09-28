@@ -3,7 +3,7 @@ FROM node:22-alpine
 WORKDIR /usr/src/app
 
 COPY package*.json ./
-RUN npm ci --omit=dev --no-audit --no-fund
+COPY node_modules ./node_modules
 
 COPY server.js ./
 COPY public ./public

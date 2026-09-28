@@ -1,6 +1,6 @@
 {
   "name": "guestbook",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple guestbook app for Docker/Kubernetes course",
   "main": "server.js",
   "scripts": {

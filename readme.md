@@ -29,9 +29,13 @@ npm start
 
 ## Build and push to IBM Cloud Container Registry
 
+The Dockerfile copies a pre-installed `node_modules` into the image instead of running `npm install`/`npm ci` during the build. This is required in network-restricted sandboxes (e.g. the IBM Skills Network lab), where the Docker build step has no outbound access to the npm registry and `npm install`/`npm ci` fails with `npm error Exit handler never called!`. Always run `npm install` on the host first so `node_modules` exists before building.
+
 ```bash
+npm install
 ibmcloud cr login
-ibmcloud cr build -t us.icr.io/<my-namespace>/guestbook:v1 .
+docker build -t us.icr.io/<my-namespace>/guestbook:v1 .
+docker push us.icr.io/<my-namespace>/guestbook:v1
 ibmcloud cr images
 ```
 
@@ -59,7 +63,8 @@ Generate load against the service to confirm the HPA scales up replicas, then re
 2. Rebuild and push the image with the `v2` tag:
 
    ```bash
-   ibmcloud cr build -t us.icr.io/<my-namespace>/guestbook:v2 .
+   docker build -t us.icr.io/<my-namespace>/guestbook:v2 .
+   docker push us.icr.io/<my-namespace>/guestbook:v2
    ```
 
 3. Update the `image:` field in `deployment.yml` to the `v2` tag.
