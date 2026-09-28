@@ -1,0 +1,33 @@
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ docker build . -t us.icr.io/$MY_NAMESPACE/guestbook:v2 && docker push us.icr.io/$MY_NAMESPACE/guestbook:v2
+[+] Building 1.3s (12/12) FINISHED                              docker:default
+ => [internal] load build definition from Dockerfile                      0.0s
+ => => transferring dockerfile: 301B                                      0.0s
+ => [internal] load metadata for docker.io/library/node:22-alpine         0.3s
+ => [internal] load .dockerignore                                         0.0s
+ => => transferring context: 54B                                          0.0s
+ => [internal] load build context                                         0.1s
+ => => transferring context: 71.01kB                                      0.0s
+ => [deps 1/4] FROM docker.io/library/node:22-alpine@sha256:bec402741e59  0.0s
+ => CACHED [deps 2/4] WORKDIR /usr/src/app                                0.0s
+ => [deps 3/4] COPY package*.json ./                                      0.0s
+ => [deps 4/4] COPY node_modules ./node_modules                           0.2s
+ => [stage-1 3/5] COPY --from=deps /usr/src/app ./                        0.2s
+ => [stage-1 4/5] COPY server.js ./                                       0.0s
+ => [stage-1 5/5] COPY public ./public                                    0.0s
+ => exporting to image                                                    0.2s
+ => => exporting layers                                                   0.2s
+ => => writing image sha256:856a73f9f65535674aad1fe4986662a77ca11e8522ea  0.0s
+ => => naming to us.icr.io/sn-labs-castroyassin/guestbook:v2              0.0s
+The push refers to repository [us.icr.io/sn-labs-castroyassin/guestbook]
+6672726e2d07: Pushed 
+e8d51c3ce5c1: Pushed 
+ab0ee7010860: Pushed 
+18d2cfdcdded: Layer already exists 
+6a8f65b6edec: Layer already exists 
+b298ceddbfb8: Layer already exists 
+44b1b6f4e77e: Layer already exists 
+63ca1fbb43ae: Layer already exists 
+v2: digest: sha256:0dbc9c64ab79286272427807bc584faa2f979642352d22bfc3e6703cf67c234f size: 1990
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 

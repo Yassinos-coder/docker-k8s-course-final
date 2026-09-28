@@ -1,0 +1,24 @@
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl rollout history deployments guestbook --revision=2
+deployment.apps/guestbook with revision #2
+Pod Template:
+  Labels:       app=guestbook
+        pod-template-hash=848bf4cf9f
+  Containers:
+   guestbook:
+    Image:      us.icr.io/sn-labs-castroyassin/guestbook:v2
+    Port:       3000/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:      5m
+    Requests:
+      cpu:      2m
+    Environment:
+      REDIS_MASTER_SERVICE_HOST:        redis-master
+      REDIS_MASTER_SERVICE_PORT:        6379
+      SPRING_PROFILES_ACTIVE:   prod
+    Mounts:     <none>
+  Volumes:      <none>
+
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 

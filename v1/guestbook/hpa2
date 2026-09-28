@@ -1,0 +1,8 @@
+^Ctheia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl get hpa guestbook --watch
+NAME        REFERENCE              TARGETS      MINPODS   MAXPODS   REPLICAS   AGE
+guestbook   Deployment/guestbook   cpu: 5%/5%   1         10        10         3m18s
+
+
+guestbook   Deployment/guestbook   cpu: 15%/5%   1         10        10         4m1s
+guestbook   Deployment/guestbook   cpu: 16%/5%   1         10        10         4m16s

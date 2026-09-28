@@ -1,0 +1,5 @@
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl apply -f deployment.yml
+deployment.apps/guestbook configured
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 

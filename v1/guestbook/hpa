@@ -1,0 +1,9 @@
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl autoscale deployment guestbook --cpu-percent=5 --min=1 --max=10
+horizontalpodautoscaler.autoscaling/guestbook autoscaled
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl get hpa guestbook
+NAME        REFERENCE              TARGETS             MINPODS   MAXPODS   REPLICAS   AGE
+guestbook   Deployment/guestbook   cpu: <unknown>/5%   1         10        0          4s
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 

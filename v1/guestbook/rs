@@ -1,0 +1,58 @@
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl rollout history deployment/guestbook
+deployment.apps/guestbook 
+REVISION  CHANGE-CAUSE
+1         <none>
+2         <none>
+3         <none>
+4         <none>
+
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl rollout history deployments guestbook --revision=2
+deployment.apps/guestbook with revision #2
+Pod Template:
+  Labels:       app=guestbook
+        pod-template-hash=848bf4cf9f
+  Containers:
+   guestbook:
+    Image:      us.icr.io/sn-labs-castroyassin/guestbook:v2
+    Port:       3000/TCP
+    Host Port:  0/TCP
+    Limits:
+      cpu:      5m
+    Requests:
+      cpu:      2m
+    Environment:
+      REDIS_MASTER_SERVICE_HOST:        redis-master
+      REDIS_MASTER_SERVICE_PORT:        6379
+      SPRING_PROFILES_ACTIVE:   prod
+    Mounts:     <none>
+  Volumes:      <none>
+
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl get rs
+NAME                               DESIRED   CURRENT   READY   AGE
+guestbook-56465cd77d               0         0         0       24m
+guestbook-57cff7d6d8               1         1         1       112s
+guestbook-68bd6c78f4               0         0         0       3m8s
+guestbook-848bf4cf9f               0         0         0       11m
+nodejs-ex-git-5fdd7c7496           1         1         1       94m
+nodejs-ex-git-75f9df9cdf           0         0         0       97m
+openshift-web-console-8555dd67d7   2         2         2       102m
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl rollout undo deployment/guestbook --to-revision=1
+deployment.apps/guestbook rolled back
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ kubectl get rs
+NAME                               DESIRED   CURRENT   READY   AGE
+guestbook-56465cd77d               1         1         0       24m
+guestbook-57cff7d6d8               1         1         1       2m4s
+guestbook-68bd6c78f4               0         0         0       3m20s
+guestbook-848bf4cf9f               0         0         0       11m
+nodejs-ex-git-5fdd7c7496           1         1         1       94m
+nodejs-ex-git-75f9df9cdf           0         0         0       97m
+openshift-web-console-8555dd67d7   2         2         2       102m
+theia@theiaopenshift-castroyassin:/home/project/docker-k8s-course-final/v1/gues
+tbook$ 
