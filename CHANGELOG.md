@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-09-28
+
+### Changed
+
+- **Breaking:** moved the app into `v1/guestbook/` to match the official lab's directory structure
+- **Breaking:** app now listens on port 3000 (was 8080), matching the lab's `deployment.yml`/`kubectl port-forward` expectations
+- Dockerfile rewritten as a genuine multi-stage build (`deps` stage copies `node_modules`, final stage copies runtime files only), still without running npm during the image build
+- `deployment.yml` rewritten to match the lab-provided template: `RollingUpdate` strategy, `50m`/`20m` CPU limits/requests, `imagePullPolicy: Always`, and the Redis/Spring env vars from the official manifest
+- `service.yml` port updated to 3000
+- README updated for the new path, `kubectl port-forward` + Skills Network Toolbox workflow, and `MY_NAMESPACE` env var usage
+
 ## [1.0.2] - 2026-09-28
 
 ### Fixed
